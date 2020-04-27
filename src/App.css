@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+.app-wrapper {
+   width: 1920px;
+   margin: 0 auto;
+
+   display: grid;
+
+   grid-template-areas: 
+   "head head"
+   "background background"
+   "nav cont";
+
+   grid-template-rows: 60px 180px 1fr;
+   grid-template-columns: 574px 1fr;
+   grid-row-gap: 44px;
+
+   font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+   grid-area: head;
+
+   width: 100%;
+   background-color: #000106;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header img {
+   margin-left: 320px;
+   margin-top: 16px;
+   width: 20px;
+   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.background {
+   grid-area: background;
+
+   width: 1280px;
+   margin: 0 auto;
+
+   background-image: url(img/background.jpg);
+
 }
 
-.App-link {
-  color: #61dafb;
+.background .mini-description {
+   margin-right: 35px;
+   margin-top: 60px;
+
+   text-align: right;
+
+   color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mini-description .username {
+   margin: 0;
+
+   font-size: 24px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.mini-description .specialization {
+   margin-top: 5px;
+   
+   font-size: 9px;
+}
+
+.mini-description .location {
+   margin-top: 35px;
+   
+   font-size: 9px;
+   color: #a6a6a6;
+}
+
+.navigation {
+   margin-left: 320px;
+
+   grid-area: nav;
+
+   border-right: 1px solid #f4f4f4;
+
+}
+
+.navigation div {
+   margin-bottom: 17px;
+}
+
+.navigation a {
+   font-size: 11pt;
+   font-weight: 700;
+   color: #727272;
+}
+
+.content {
+   margin-right: 320px;
+   grid-area: cont;
 }

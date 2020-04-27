@@ -1,11 +1,12 @@
 import React from 'react';
+import './Profile.css';
 
 const Profile = () => {
    return (
       <div className='content'>
          <div>
             avatar + description
-            </div>
+         </div>
          <div>
             my posts
                <div>

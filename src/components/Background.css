@@ -1,0 +1,39 @@
+.background {
+   grid-area: background;
+
+   width: 1280px;
+   margin: 0 auto;
+
+   background-image: url(../img/background.jpg);
+
+}
+
+.background .mini_description {
+   margin-right: 35px;
+   margin-top: 60px;
+
+   text-align: right;
+
+   color: white;
+}
+
+.mini_description .username {
+   margin: 0;
+
+   font-size: 24px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.mini_description .specialization {
+   margin-top: 5px;
+   
+   font-size: 9px;
+}
+
+.mini_description .location {
+   margin-top: 35px;
+   
+   font-size: 9px;
+   color: #a6a6a6;
+}

@@ -4,7 +4,7 @@ import './Navigation.css';
 const Navigation = () => {
    return (
       <nav className='navigation'>
-         <div>
+         <div className = 'active'>
             <a>Profile</a>
          </div>
          <div>

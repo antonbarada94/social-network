@@ -9,11 +9,39 @@
 }
 
 .navigation div {
-   margin-bottom: 17px;
+   padding: 8px 0;
+}
+
+.navigation div:hover {
+   margin-bottom: 40px;
+   width: 80px;
+
+   border-bottom: solid;
+   border-image-slice: 1;
+   border-width: 1px;
+   border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
+}
+
+.navigation .active {
+   padding-top: 0px;
+   margin-bottom: 40px;
+
+}
+
+.navigation .active:hover {
+   padding-top: 0px;
+   margin-bottom: 39px;
+
 }
 
 .navigation a {
+
    font-size: 11pt;
    font-weight: 700;
    color: #727272;
+}
+
+.navigation .active a {
+   font-size: 12pt;
+   color: #484747;
 }

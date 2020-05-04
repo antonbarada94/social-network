@@ -1,10 +1,10 @@
 import React from 'react';
-import './Profile.css';
+import  s from'./Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
    return (
-      <div className='content'>
+      <div>
          <div>
             avatar + description
          </div>

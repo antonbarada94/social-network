@@ -8,11 +8,17 @@
 
 }
 
-.navigation div {
+.navigation a {
+   display: block;
    padding: 8px 0;
+
+   font-size: 11pt;
+   text-decoration: none;
+   font-weight: 700;
+   color: #727272;
 }
 
-.navigation div:hover {
+.navigation a:hover {
    margin-bottom: 40px;
    width: 80px;
 
@@ -22,26 +28,14 @@
    border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
 }
 
-.navigation .active {
-   padding-top: 0px;
+.navigation a.active {
    margin-bottom: 40px;
 
-}
-
-.navigation .active:hover {
-   padding-top: 0px;
-   margin-bottom: 39px;
-
-}
-
-.navigation a {
-
-   font-size: 11pt;
-   font-weight: 700;
-   color: #727272;
-}
-
-.navigation .active a {
    font-size: 12pt;
    color: #484747;
+}
+
+.navigation a.active:hover {
+   margin-bottom: 39px;
+
 }

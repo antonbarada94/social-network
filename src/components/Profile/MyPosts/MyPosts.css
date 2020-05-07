@@ -1,4 +1,40 @@
-textarea {
-   padding: 0;
+.newpost {
    width: 100%;
+
+   display: grid;
+   grid-template-rows: 1fr min-content;
+   row-gap: 25px;
+}
+.newpost-area {
+   padding: 15px;
+   height: 80px;
+
+   border: 1px solid #f4f4f4;
+
+   font-family: inherit;
+   font-size: 16px;
+   color: #595858;
+   
+}
+
+.newpost-area::placeholder {
+   font-size: 9px;
+   color: #d0cfcf;
+}
+
+.newpost-button {
+   margin-left: auto;
+   width: 150px;
+   height: 40px;
+   
+   font-family: inherit;
+   font-size: 14px;
+   font-weight: bold;
+   color: white;
+
+   border-radius: 20px;
+   border-style: none;
+
+   background-image: linear-gradient( to left, #cc00ff, #7e00de);
+    
 }

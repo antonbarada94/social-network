@@ -1,10 +1,8 @@
 .navigation {
    margin-left: 320px;
-   padding-top: 54px;
-
+   padding-top: 46px;
    grid-area: nav;
-
-   border-right: 1px solid #f4f4f4;
+   
 
 }
 
@@ -19,7 +17,7 @@
 }
 
 .navigation a:hover {
-   margin-bottom: 40px;
+   margin-bottom: 32px;
    width: 80px;
 
    border-bottom: solid;
@@ -29,13 +27,13 @@
 }
 
 .navigation a.active {
-   margin-bottom: 40px;
+   margin-bottom: 32px;
 
    font-size: 12pt;
    color: #484747;
 }
 
 .navigation a.active:hover {
-   margin-bottom: 39px;
+   margin-bottom: 31px;
 
 }

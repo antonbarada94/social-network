@@ -1,0 +1,27 @@
+.description {
+   display: grid;
+   grid-template-rows: min-content min-content min-content;
+}
+
+.description p {
+   margin: 0;
+}
+
+.description .username {
+   padding: 15px 0;
+
+   font-size: 24px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.description .specialization {
+   font-size: 9px;
+   color: #646464;
+}
+
+.description .location {
+   padding-top: 35px;
+   font-size: 9px;
+   color: #a6a6a6;
+}

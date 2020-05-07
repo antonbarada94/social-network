@@ -1,0 +1,21 @@
+.statistics{
+   padding-top: 15px;
+
+   display: grid;
+   grid-template-columns: 1fr min-content;
+   column-gap: 65px;
+}
+
+.statistics p {
+   margin: 0;
+
+   text-align: right;
+   font-size: 13px;
+   color: #4b4a4a;
+}
+
+.statistics span {
+   text-align: right;
+   font-size: 13px;
+   font-weight: 500;
+}

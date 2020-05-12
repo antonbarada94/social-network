@@ -23,6 +23,7 @@ html {
    margin-right: 320px;
    padding-top: 54px;
    padding-left: 80px;
+   height: 100%;
 
    grid-area: cont;
    

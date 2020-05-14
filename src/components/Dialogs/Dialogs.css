@@ -1,20 +1,49 @@
 .dialogs {
    display: grid;
-   grid-template-columns: 2fr 10fr;
+   grid-template-columns: 3fr 7fr;
 }
 
 .dialogs-items {
+   display: grid;
+   row-gap: 35px;
+
+   border-right: 1px solid #f4f4f4;
+}
+
+.dialogs-search {
+   display: grid;
+   grid-template-columns: max-content 1fr;
 
 }
 
-.dialog {
+.dialogs-search img {
+   padding: 11px;
 
+   background-color: #f6f6f6;
+}
+
+.dialogs-search-input {
+   padding: 10px;
+
+   font-family: inherit;
+   font-size: 8pt;
+   color: #595858;
+
+   border: none;
+   outline: none;
+
+   background-color: #f6f6f6;
+}
+
+.dialogs-search-input::placeholder {
+   font-size: 8pt;
+   color: #ababab;;
+}
+
+.dialogs-container {
+   display: grid;
 }
 
 .messages {
 
-}
-
-.message {
-   
 }

@@ -9,21 +9,23 @@
 .navigation a {
    display: block;
    padding: 8px 0;
+   width: 80px;
 
    font-size: 11pt;
-   text-decoration: none;
    font-weight: 700;
    color: #727272;
+   transition-duration: 0.5s;
 }
 
 .navigation a:hover {
    margin-bottom: 32px;
-   width: 80px;
 
    border-bottom: solid;
    border-image-slice: 1;
    border-width: 1px;
    border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
+
+   transition-duration: 0.5s;
 }
 
 .navigation a.active {

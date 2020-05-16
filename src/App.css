@@ -1,8 +1,9 @@
-html { 
-   overflow-x:  hidden; 
+body { 
+   overflow-x:  hidden;
 }
 .app-wrapper{
    width: 1920px;
+   height: 100%;
    margin: 0 auto;
 
    display: grid;
@@ -22,13 +23,16 @@ html {
 .app-wrapper a {
    text-decoration: none;
 }
+.app-wrapper p {
+   margin: 0;
+}
 
 .app-wrapper-content {
    margin-right: 320px;
    padding-top: 54px;
    padding-left: 80px;
    height: 100%;
-
+   
    grid-area: cont;
    
    border-left: 1px solid #f4f4f4;

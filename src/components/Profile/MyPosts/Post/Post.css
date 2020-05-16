@@ -7,10 +7,6 @@
    border-top: 1px solid #f4f4f4;
 }
 
-.post p {
-   margin: 0;
-}
-
 .post-data {
    display: grid;
    grid-template-columns: max-content max-content;
@@ -18,7 +14,7 @@
 }
 
 .post-data img {
-   width: 25px;
+   width: 28px;
 }
 
 .post-data-user {

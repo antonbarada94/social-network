@@ -1,6 +1,5 @@
 .skills {
    margin-top: 60px;
-   width: 100%;
 
    display: flex;
    flex-wrap: wrap;
@@ -8,8 +7,7 @@
   
 }
 
-.skill {
-   margin: 0;
+.skills .skill {
    margin-right: 15px;
    margin-bottom: 15px;
    padding: 6px 15px;

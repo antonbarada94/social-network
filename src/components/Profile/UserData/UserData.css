@@ -1,6 +1,6 @@
 .user-data {
    height: 130px;
    display: grid;
-   grid-template-columns: min-content 1fr 200px;
+   grid-template-columns: min-content 1fr min-content;
    column-gap: 35px;
 }

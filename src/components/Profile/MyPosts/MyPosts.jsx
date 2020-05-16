@@ -2,7 +2,9 @@ import React from 'react';
 import './MyPosts.css'
 import Post from './Post/Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+   let postsElements = props.posts.reverse().map(post => <Post message = {post.message} user = {post.user} date = {post.date} likeCount = {post.likeCount} />)
+
    return (
       <div>
          <div className = 'newpost'>
@@ -10,8 +12,7 @@ const MyPosts = () => {
             <button className = 'newpost-button'>Post</button>
          </div>
          <div className = 'posts'>
-            <Post message = 'Hi, how are you?' user = 'Elizaveta Kaminskaya' date = '10 / 05 / 2020' likeCount = '10' />
-            <Post message = "It's my first post" user = 'Elizaveta Kaminskaya' date = '20 / 04 / 2020' likeCount = '15' />
+            {postsElements}
          </div>
       </div>
    );

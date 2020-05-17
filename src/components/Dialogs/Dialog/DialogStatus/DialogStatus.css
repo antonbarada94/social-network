@@ -1,0 +1,32 @@
+.dialog-status {
+   padding-top: 5px;
+
+   display: grid;
+   grid-template-rows: min-content min-content;
+   row-gap: 5px;
+
+   text-align: center;
+}
+
+.dialog-status span:first-child {
+   margin: auto;
+
+   font-size: 9pt;
+   color: #ececec;
+}
+
+.dialog-status span:last-child {
+   padding: 2px;
+
+   font-size: 9pt;
+   font-weight: bold;
+   color: #fffefe;
+
+   background-color: #d6d6d6;
+
+   border-radius: 10px;
+}
+
+a.active .dialog-status span:last-child {
+   color: #ca00fe;
+}

@@ -12,7 +12,7 @@ const Dialog = (props) => {
          <NavLink to={path}>
             <div className = "dialog-data">
                <img src={dialogAvatar}/>
-               <DialogInfo name = {props.name} />
+               <DialogInfo name = {props.name} lastMessage = {props.lastMessage}/>
                <DialogStatus />  
             </div>
          </NavLink>

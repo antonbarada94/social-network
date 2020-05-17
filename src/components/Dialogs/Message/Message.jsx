@@ -7,7 +7,7 @@ const Message = (props) => {
       <div className="message">
          <img src = {messageAvatar}/>
          <div className = 'message-data'>
-            <p>USER</p>
+            <p>{props.name}</p>
             <p>{props.message}</p>
          </div>
          <span>TIME</span>

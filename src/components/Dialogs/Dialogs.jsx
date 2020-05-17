@@ -5,9 +5,9 @@ import Message from './Message/Message';
 import search from '../../img/search.png'
 
 const Dialogs = (props) => {
-   let dialogsElements = props.dialogs.map(dialog => <Dialog  name = {dialog.name} id = {dialog.id}/>)
+   let dialogsElements = props.state.dialogs.map(dialog => <Dialog  name = {dialog.name} id = {dialog.id} lastMessage ={dialog.lastMessage}/>)
 
-   let messagesElements = props.messages.map(message => <Message message = {message.message} />)
+   let messagesElements = props.state.messages.map(message => <Message message = {message.message} name = {message.name} id = {message.id} />)
 
    return (
       <div className = 'dialogs'>

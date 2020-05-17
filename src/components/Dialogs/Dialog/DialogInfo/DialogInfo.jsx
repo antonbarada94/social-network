@@ -5,7 +5,7 @@ const DialogInfo = (props) => {
    return (
       <div className="dialog-info">
          <p>{props.name}</p>
-         <p>Message</p>
+         <p>{props.lastMessage}</p>
       </div>
    );
 }

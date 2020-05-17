@@ -3,32 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-let posts = [
-  {id: 1, message: "It's my first post", user: 'Anton Sergushkin', date: '05 / 05 / 2020', likeCount: 15},
-  {id: 2, message: 'Hi, how are you?', user: 'Elizaveta Kaminskaya', date:'10 / 05 / 2020', likeCount: 10},
-  {id: 3, message: 'All is good, thanks!', user: 'Anton Sergushkin', date:'11 / 05 / 2020', likeCount: 40},
-]
-
-let dialogs = [
-  {id: 1, name: 'Anton'},
-  {id: 2, name: 'Liza'},
-  {id: 3, name: 'Sergei'},
-  {id: 4, name: 'Nastya'},
-  {id: 5, name: 'Natasha'},
-]
-
-let messages = [
-  {id: 1, message: 'Hi'},
-  {id: 2, message: 'How is your barada?'},
-  {id: 3, message: 'Whats up dude!'},
-  {id: 4, message: 'Hi. How you doing?'},
-  {id: 5, message: 'Okay'},
-]
+import state from './redux/state'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App  posts = {posts} dialogs = {dialogs} messages = {messages} />
+    <App  state = {state} />
   </React.StrictMode>,
   document.getElementById('root')
 );

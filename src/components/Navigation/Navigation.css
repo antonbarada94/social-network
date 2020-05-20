@@ -1,9 +1,8 @@
 .navigation {
    margin-left: 320px;
    padding-top: 46px;
-   grid-area: nav;
    
-
+   grid-area: nav;
 }
 
 .navigation a {
@@ -14,6 +13,8 @@
    font-size: 11pt;
    font-weight: 700;
    color: #727272;
+   
+   transition-property: margin;
    transition-duration: 0.5s;
 }
 
@@ -25,7 +26,9 @@
    border-width: 1px;
    border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
 
-   transition-duration: 0.5s;
+   transition-property: margin;
+   transition-duration: 0.4s;
+
 }
 
 .navigation a.active {
@@ -33,9 +36,12 @@
 
    font-size: 12pt;
    color: #484747;
+
 }
 
 .navigation a.active:hover {
    margin-bottom: 31px;
 
+   font-size: 12pt;
+   
 }

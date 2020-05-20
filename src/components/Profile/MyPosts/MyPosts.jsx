@@ -5,11 +5,18 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
    let postsElements = props.posts.reverse().map(post => <Post message = {post.message} user = {post.user} date = {post.date} likeCount = {post.likeCount} />)
 
+   let newPostElement = React.createRef();
+
+   let addPost = () => {
+      let text = newPostElement.current.value;
+      alert(text);
+   }
+
    return (
       <div>
          <div className = 'newpost'>
-            <textarea className = 'newpost-area' placeholder = "What's new?"></textarea>
-            <button className = 'newpost-button'>Post</button>
+            <textarea ref = {newPostElement} className = 'newpost-area' placeholder = "What's new?"></textarea>
+            <button className = 'newpost-button' onClick = {addPost}>Post</button>
          </div>
          <div className = 'posts'>
             {postsElements}

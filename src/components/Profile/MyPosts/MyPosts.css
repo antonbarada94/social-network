@@ -7,13 +7,13 @@
    padding: 15px;
    height: 80px;
 
-   border: 1px solid #f4f4f4;
-   outline: none;
-   resize: none;
-
    font-family: inherit;
    font-size: 16px;
    color: #595858;
+
+   border: 1px solid #f4f4f4;
+   outline: none;
+   resize: none;
    
 }
 
@@ -38,6 +38,13 @@
 
    background-image: linear-gradient( to left, #cc00ff, #7e00de);
     
+}
+
+.newpost-button:hover, .newpost-button:active {
+   -webkit-box-shadow: 7px 7px 9px 0px rgba(209,209,209,0.7);
+   -moz-box-shadow: 7px 7px 9px 0px rgba(209,209,209,0.7);
+   box-shadow: 7px 7px 9px 0px rgba(209,209,209,0.7);
+   
 }
 
 .posts {

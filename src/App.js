@@ -5,14 +5,13 @@ import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
 import Background from './components/Background/Background';
 import Dialogs from './components/Dialogs/Dialogs';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 const App = (props) => {
    return (
-      <BrowserRouter>
          <div className='app-wrapper'>
             <Header />
             <Background />
@@ -25,7 +24,6 @@ const App = (props) => {
                <Route path = '/settings' render = {() => <Settings />} />
             </div>
          </div>
-      </BrowserRouter>
    );
 }
 

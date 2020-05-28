@@ -1,0 +1,53 @@
+.new-messages {
+   display: grid;
+   grid-template-columns: min-content 1fr min-content;
+   column-gap: 30px;
+}
+
+.new-messages img {
+   width: 65px;
+}
+
+.new-message {
+   display: grid;
+   row-gap: 25px;
+}
+
+.new-message-area {
+   padding: 10px 0;
+   min-height: 60px;
+
+   outline: none;
+   resize: none;
+   border: none;
+
+   border-bottom: solid;
+   border-image-slice: 1;
+   border-width: 2px;
+   border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
+
+   font-family: inherit;
+   font-size: 14px;
+   color: #595858;
+}
+
+.new-message-area::placeholder {
+   font-size: 12px;
+   color: #d0cfcf;
+}
+
+.new-message-button {
+   margin-left: auto;
+   width: 17px;
+   height: 11px;
+
+   outline: none;
+   border: none;
+   background-image: url(../../../img/send.png);
+   background-color: white;
+   
+   font-family: inherit;
+   font-size: 14px;
+   font-weight: bold;
+   color: white;
+}

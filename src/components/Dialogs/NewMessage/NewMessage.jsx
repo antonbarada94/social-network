@@ -2,8 +2,6 @@ import React from 'react';
 import './NewMessage.css';
 import currentUserAvatar from '../../../img/post_avatar.png';
 
-
-
 const NewMessage = (props) => {
    let newMessageElement = React.createRef();
 

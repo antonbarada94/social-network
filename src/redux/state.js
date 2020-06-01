@@ -1,4 +1,6 @@
 let store = {
+   //private properties and methods
+
    _state: {
       profilePage: {
          posts: [
@@ -36,6 +38,8 @@ let store = {
       console.log("change");
    },
 
+   //none-private properties and methods
+
    getState() {
       return this._state;
    },
@@ -44,38 +48,42 @@ let store = {
       this._callSubscriber = observer;
    },
 
-   addPost() {
-      let newPost = {
-         id: 5,
-         message: this._state.profilePage.newPostText,
-         user: 'Anton Sergushkin',
-         date: '25 / 05 / 2020',
-         likeCount: 0,
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-   },
+   dispatch(action) {
+      switch(action.type) {
+         case 'ADD-POST':
+            let newPost = {
+               id: 5,
+               message: this._state.profilePage.newPostText,
+               user: 'Anton Sergushkin',
+               date: '25 / 05 / 2020',
+               likeCount: 0,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+            break;
 
-   updateNewPostText(newText) {
-      this._state.profilePage.newPostText = newText;
-      this._callSubscriber(this._state);
-   },
+         case 'UPDATE-NEW-POST-TEXT':
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+            break;
 
-   addMessage() {
-      let newMessage = {
-         id: 1,
-         name: 'Anton',
-         message: this._state.messagesPage.newMessageText,
-      };
-      this._state.messagesPage.messages.push(newMessage);
-      this._state.messagesPage.newMessageText = '';
-      this._callSubscriber(this._state);
-   },
-
-   updateNewMessageText(newMessage) {
-      this._state.messagesPage.newMessageText = newMessage;
-      this._callSubscriber(this._state);
+         case 'ADD-MESSAGE':
+            let newMessage = {
+               id: 1,
+               name: 'Anton',
+               message: this._state.messagesPage.newMessageText,
+            };
+            this._state.messagesPage.messages.push(newMessage);
+            this._state.messagesPage.newMessageText = '';
+            this._callSubscriber(this._state);
+            break;
+            
+         case 'UPDATE-NEW-MESSAGE-TEXT':
+            this._state.messagesPage.newMessageText = action.newMessage;
+            this._callSubscriber(this._state);
+            break;
+      }
    },
 }
 

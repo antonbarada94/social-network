@@ -1,17 +1,18 @@
 import React from 'react';
 import './NewMessage.css';
 import currentUserAvatar from '../../../img/post_avatar.png';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/state';
 
 const NewMessage = (props) => {
    let newMessageElement = React.createRef();
 
    let addMessage = () => {
-      props.dispatch({ type: 'ADD-MESSAGE' });
+      props.dispatch(addMessageActionCreator());
    }
 
    let onMessageChange = () => {
       let text = newMessageElement.current.value;
-      props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: text });
+      props.dispatch(updateNewMessageTextActionCreator(text));
    }
    
    return (

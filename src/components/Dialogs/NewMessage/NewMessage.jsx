@@ -1,7 +1,7 @@
 import React from 'react';
 import './NewMessage.css';
 import currentUserAvatar from '../../../img/post_avatar.png';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/state';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialogs-reducer';
 
 const NewMessage = (props) => {
 

@@ -1,5 +1,7 @@
-//create type constants
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
+//create type constants
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -56,41 +58,10 @@ let store = {
    },
 
    dispatch(action) {
-      switch(action.type) {
-         case ADD_POST:
-            let newPost = {
-               id: 5,
-               message: this._state.profilePage.newPostText,
-               user: 'Anton Sergushkin',
-               date: '25 / 05 / 2020',
-               likeCount: 0,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-            break;
+      this._state.profilePage = profileReducer(this._state.profilePage, action);
+      this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
 
-         case UPDATE_NEW_POST_TEXT:
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-            break;
-
-         case ADD_MESSAGE:
-            let newMessage = {
-               id: 1,
-               name: 'Anton',
-               message: this._state.messagesPage.newMessageText,
-            };
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newMessageText = '';
-            this._callSubscriber(this._state);
-            break;
-            
-         case UPDATE_NEW_MESSAGE_TEXT:
-            this._state.messagesPage.newMessageText = action.newMessage;
-            this._callSubscriber(this._state);
-            break;
-      }
+      this._callSubscriber(this._state);
    },
 }
 

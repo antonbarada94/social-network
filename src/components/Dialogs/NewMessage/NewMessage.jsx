@@ -4,14 +4,13 @@ import currentUserAvatar from '../../../img/post_avatar.png';
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/state';
 
 const NewMessage = (props) => {
-   let newMessageElement = React.createRef();
 
    let addMessage = () => {
       props.dispatch(addMessageActionCreator());
    }
 
-   let onMessageChange = () => {
-      let text = newMessageElement.current.value;
+   let onMessageChange = (e) => {
+      let text = e.target.value;
       props.dispatch(updateNewMessageTextActionCreator(text));
    }
    
@@ -19,7 +18,7 @@ const NewMessage = (props) => {
       <div className='new-messages'>
          <img src={currentUserAvatar} />
          <div className='new-message'>
-            <textarea ref={newMessageElement} onChange={onMessageChange} className='new-message-area' placeholder='Message' value={props.newMessageText}></textarea>
+            <textarea onChange={onMessageChange} className='new-message-area' placeholder='Message' value={props.newMessageText}></textarea>
             <button className='new-message-button' onClick={addMessage}></button>
          </div>
          <img src={currentUserAvatar} />

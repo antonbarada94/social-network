@@ -1,17 +1,16 @@
 import React from 'react';
 import './NewMessage.css';
 import currentUserAvatar from '../../../img/post_avatar.png';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialogs-reducer';
 
 const NewMessage = (props) => {
 
    let addMessage = () => {
-      props.dispatch(addMessageActionCreator());
+      props.addMessage();
    }
 
    let onMessageChange = (e) => {
       let text = e.target.value;
-      props.dispatch(updateNewMessageTextActionCreator(text));
+      props.updateNewMessageText(text);
    }
    
    return (

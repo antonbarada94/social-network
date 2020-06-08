@@ -3,11 +3,12 @@ import './Dialogs.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import { Route } from 'react-router-dom';
-import NewMessage from './NewMessage/NewMessage';
+import NewMessageContainer from './NewMessage/NewMessageContainer';
 import Search from './Search/Search';
 
 
 const Dialogs = (props) => {
+
    let dialogsElements = props.state.dialogs.map(dialog => <Dialog  name = {dialog.name} id = {dialog.id} lastMessage ={dialog.lastMessage}/>)
 
    let messagesElements = props.state.messages.map(message => <Route path = {"/dialogs/" + message.id } render = {() => <Message message = {message.message} name = {message.name} id = {message.id} />} /> )
@@ -24,7 +25,7 @@ const Dialogs = (props) => {
             <div className = 'messages-container'>
                {messagesElements}
             </div>
-            <NewMessage dispatch = {props.dispatch}  newMessageText = {props.state.newMessageText} />
+            <NewMessageContainer store = {props.store} />
          </div>
       </div>
    )

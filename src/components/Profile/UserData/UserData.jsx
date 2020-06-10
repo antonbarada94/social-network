@@ -13,7 +13,7 @@ const Userdata = (props) => {
             <Description />
             <Statistics />
          </div>
-         <Skills />
+         <Skills skills = {props.skills} />
       </div>
 
    );

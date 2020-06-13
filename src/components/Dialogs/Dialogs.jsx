@@ -9,11 +9,9 @@ import Search from './Search/Search';
 
 const Dialogs = (props) => {
 
-   let state = props.store.getState().messagesPage;
+   let dialogsElements = props.dialogs.map(dialog => <Dialog  name = {dialog.name} id = {dialog.id} lastMessage ={dialog.lastMessage}/>)
 
-   let dialogsElements = state.dialogs.map(dialog => <Dialog  name = {dialog.name} id = {dialog.id} lastMessage ={dialog.lastMessage}/>)
-
-   let messagesElements = state.messages.map(message => <Route path = {"/dialogs/" + message.id } render = {() => <Message message = {message.message} name = {message.name} id = {message.id} />} /> )
+   let messagesElements = props.messages.map(message => <Route path = {"/dialogs/" + message.id } render = {() => <Message message = {message.message} name = {message.name} id = {message.id} />} /> )
 
    return (
       <div className = 'dialogs'>
@@ -27,7 +25,7 @@ const Dialogs = (props) => {
             <div className = 'messages-container'>
                {messagesElements}
             </div>
-            <NewMessageContainer store = {props.store} />
+            <NewMessageContainer />
          </div>
       </div>
    )

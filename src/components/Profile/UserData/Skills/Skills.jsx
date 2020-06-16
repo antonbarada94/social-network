@@ -3,7 +3,7 @@ import './Skills.css';
 
 const Skills = (props) => {
 
-let skillsElements = props.skills.map(skill => <p className="skill">{skill.skillname}</p>)
+let skillsElements = props.skills.map(skill => <p key = {skill.id} className="skill">{skill.skillname}</p>)
 
    return (
       <div className='skills'>

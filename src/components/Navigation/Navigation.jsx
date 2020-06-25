@@ -12,7 +12,7 @@ const Navigation = () => {
             <NavLink to = '/dialogs'>Messages</NavLink>
          </div>
          <div>
-            <NavLink to = '/news'>News</NavLink>
+            <NavLink to = '/projects'>Projects</NavLink>
          </div>
          <div>
             <NavLink to = '/music'>Music</NavLink>

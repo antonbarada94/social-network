@@ -1,0 +1,16 @@
+.projects {
+   display: grid;
+   row-gap: 80px;
+}
+
+.projects-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+
+
+
+ 

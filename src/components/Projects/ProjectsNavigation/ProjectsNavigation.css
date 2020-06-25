@@ -1,0 +1,25 @@
+.project-navigation {
+   display: grid;
+   grid-template-columns: repeat(3, min-content);
+   column-gap: 90px;
+}
+
+.project-navigation a {
+   font-size: 14px;
+   font-weight: 600;
+   color: #727272;
+   text-transform: uppercase;
+
+}
+
+.project-navigation a.active {
+   padding-bottom: 20px;
+
+   font-weight: bold;
+   color: #484747;
+
+   border-bottom: solid;
+   border-image-slice: 1;
+   border-width: 2px;
+   border-image-source: linear-gradient(to right ,#7f03de, #cc00ff);
+}

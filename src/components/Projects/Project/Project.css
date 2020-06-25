@@ -1,0 +1,26 @@
+.project {
+   margin-bottom: 30px;
+
+   display: grid;
+   row-gap: 15px;
+
+   font-size: 11pt;
+   font-weight: 600;
+   color: #727272;
+}
+
+.project img {
+   width: 225px;
+   height: 175px;
+}
+
+.project-description {
+   display: grid;
+   row-gap: 5px;
+}
+
+.project .autor {
+
+   font-weight: bold;
+   color: #484747;
+}

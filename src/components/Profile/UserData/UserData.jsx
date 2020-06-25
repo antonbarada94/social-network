@@ -15,7 +15,6 @@ const Userdata = (props) => {
          </div>
          <Skills skills = {props.skills} />
       </div>
-
    );
 }
 

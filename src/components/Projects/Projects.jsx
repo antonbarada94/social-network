@@ -5,27 +5,29 @@ import Project from './Project/Project';
 import { Route } from 'react-router-dom';
 import * as axios from 'axios';
 
+class Projects extends React.Component {
 
-const Projects = (props) => {
-   if (props.projects.length === 0) {
+   constructor(props) {
+      super(props);
 
       axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-         props.setProjects(response.data.items);
+         this.props.setProjects(response.data.items);
       });
+      
    }
 
-   let projectsElements = props.projects.map(project => 
-   <Route path = {"/projects/popular"}  render = {() => <Project status = {project.status} photoUrl = {project.photos.small} name = {project.name}  
-   id = {project.id} direction = {project.direction} key = {project.id} followed = {project.followed} follow = {props.follow} unfollow = {props.unfollow} />} /> )
-
-   return (
-      <div className = 'projects'>
-         <ProjectsNavigation />
-         <div className = 'projects-container'>
-            {projectsElements}
+   render() {
+      return (
+         <div className = 'projects'>
+            <ProjectsNavigation />
+            <div className = 'projects-container'>
+               {this.props.projects.map(project => 
+               <Route path = {"/projects/popular"}  render = {() => <Project status = {project.status} photoUrl = {project.photos.small} name = {project.name}  
+               id = {project.id} direction = {project.direction} key = {project.id} followed = {project.followed} follow = {this.props.follow} unfollow = {this.props.unfollow} />} /> )}
+            </div>
          </div>
-      </div>
-   );
+      );
+   }
 }
 
 export default Projects;

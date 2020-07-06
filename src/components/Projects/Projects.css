@@ -14,7 +14,22 @@
    row-gap: 50px;
 }
 
+.pages {
+   display: grid;
+   column-gap: 2px;
+   grid-template-columns: repeat(30, 1fr);
 
+   padding-bottom: 15px;
+   max-width: 945px;
+}
+
+.pages:hover {
+   cursor: pointer;
+}
+
+.selected-page {
+   font-weight: bold;
+}
 
 
  

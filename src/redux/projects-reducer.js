@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_PROJECTS = 'SET_PROJECTS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PROJECTS_COUNT = 'SET_TOTAL_PROJECTS_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
   projects: [],
   pageSize: 20,
   totalProjectsCount: 0,
   currentPage: 1,
+  isFetching: false,
 }
 
 const projectsReducer = (state = initialState, action) => {
@@ -52,6 +54,12 @@ const projectsReducer = (state = initialState, action) => {
             totalProjectsCount: action.totalProjectsCount,
          }
 
+      case TOGGLE_IS_FETCHING:
+         return {
+            ...state,
+            isFetching: action.isFetching,
+         }
+
       default:
          return state;
    }
@@ -62,6 +70,6 @@ export const unfollowActionCreator = (projectId) => ({type: UNFOLLOW, projectId}
 export const setProjectsActionCreator = (projects) => ({type: SET_PROJECTS, projects});
 export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalProjectsCountActionCreator = (totalProjectsCount) => ({type: SET_TOTAL_PROJECTS_COUNT, totalProjectsCount});
-
+export const toggleIsFetchingActionCreator = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
 export default projectsReducer; 

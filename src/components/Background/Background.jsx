@@ -1,13 +1,13 @@
 import React from 'react';
 import './Background.css'
 
-const Background = () => {
+const Background = (props) => {
    return (
       <div className = 'background'>
          <div className = "mini_description">
-            <p className = 'username'>Firstname + Lastname</p>
-            <p className = 'specialization'>Specialization</p>
-            <p className = 'location'>Location</p>
+            <p className = 'username'>{props.userDescription.name}</p>
+            <p className = 'specialization'>{props.userDescription.specialization}</p>
+            <p className = 'location'>{props.userDescription.location}</p>
          </div>
       </div>
    );

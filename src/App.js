@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
-import Background from './components/Background/Background';
+import BackgroundContainer from './components/Background/BackgroundContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import ProjectsContainer from './components/Projects/ProjectsContainer';
 import { Route } from 'react-router-dom';
@@ -14,7 +14,7 @@ const App = (props) => {
    return (
          <div className='app-wrapper'>
             <Header />
-            <Background />
+            <BackgroundContainer />
             <Navigation />
             <div className='app-wrapper-content'>
                <Route path = '/profile' render = {() => <Profile />} />

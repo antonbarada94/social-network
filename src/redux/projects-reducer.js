@@ -6,21 +6,21 @@ const SET_TOTAL_PROJECTS_COUNT = 'SET_TOTAL_PROJECTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
-  projects: [],
-  pageSize: 20,
-  totalProjectsCount: 0,
-  currentPage: 1,
-  isFetching: false,
+   projects: [],
+   pageSize: 20,
+   totalProjectsCount: 0,
+   currentPage: 1,
+   isFetching: false,
 }
 
 const projectsReducer = (state = initialState, action) => {
-   switch(action.type) {
+   switch (action.type) {
       case FOLLOW:
          return {
             ...state,
             projects: state.projects.map(project => {
                if (project.id === action.projectId) {
-                  return {...project, followed: true}
+                  return { ...project, followed: true }
                }
                return project;
             })
@@ -30,7 +30,7 @@ const projectsReducer = (state = initialState, action) => {
             ...state,
             projects: state.projects.map(project => {
                if (project.id === action.projectId) {
-                  return {...project, followed: false}
+                  return { ...project, followed: false }
                }
                return project;
             })
@@ -65,11 +65,11 @@ const projectsReducer = (state = initialState, action) => {
    }
 }
 
-export const followActionCreator = (projectId) => ({type: FOLLOW, projectId});
-export const unfollowActionCreator = (projectId) => ({type: UNFOLLOW, projectId});
-export const setProjectsActionCreator = (projects) => ({type: SET_PROJECTS, projects});
-export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const setTotalProjectsCountActionCreator = (totalProjectsCount) => ({type: SET_TOTAL_PROJECTS_COUNT, totalProjectsCount});
-export const toggleIsFetchingActionCreator = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const follow = (projectId) => ({ type: FOLLOW, projectId });
+export const unfollow = (projectId) => ({ type: UNFOLLOW, projectId });
+export const setProjects = (projects) => ({ type: SET_PROJECTS, projects });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setTotalProjectsCount = (totalProjectsCount) => ({ type: SET_TOTAL_PROJECTS_COUNT, totalProjectsCount });
+export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
 export default projectsReducer; 

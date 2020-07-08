@@ -1,5 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const SET_PROFILE = 'SET_PROFILE';
 
 let initialState = {
    skills:[
@@ -21,6 +22,7 @@ let initialState = {
       {id: 3, message: 'All is good, thanks!', user: 'Anton Sergushkin', date:'11 / 05 / 2020', likeCount: 40},
    ],
    newPostText: "",
+   profile: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ const profileReducer = (state = initialState, action) => {
             ...state,
             newPostText: action.newText,
          };
+
+      case SET_PROFILE:
+         return {
+            ...state,
+            profile: action.profile,
+         };
       
       default: 
          return state;
@@ -52,7 +60,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const addPostActionCreator = () => ({ type: ADD_POST });
-
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
+export const setProfile = (profile) => ({type: SET_PROFILE, profile});
 
 export default profileReducer;

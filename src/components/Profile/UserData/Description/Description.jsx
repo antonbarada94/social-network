@@ -4,8 +4,8 @@ import './Description.css';
 const Description = (props) => {
    return (
       <div className = 'description'>
-         <p className = 'username'>Firstname + Lastname</p>
-         <p className = 'specialization'>Specialization</p>
+         <p className = 'username'>{props.fullName}</p>
+         <p className = 'specialization'>{props.specialization}</p>
          <p className = 'location'>Location</p>
       </div>
    );

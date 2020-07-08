@@ -1,11 +1,14 @@
 import React from 'react';
 import './Project.css'
 import projectImage from '../../../assets/images/project.png'
+import { NavLink } from 'react-router-dom';
 
 const Project = (props) => {
    return (
       <div className='project'>
-         <img src={props.photoUrl != null ? props.photoUrl : projectImage} />
+         <NavLink to = {'profile/' + props.id}>
+            <img src={props.photoUrl != null ? props.photoUrl : projectImage} />
+         </NavLink>
          <div className = 'project-description'>
             <p className = 'autor'>{props.name}</p>
             <p>{props.status}</p>

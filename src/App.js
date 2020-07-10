@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Navigation from './components/Navigation/Navigation';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import BackgroundContainer from './components/Background/BackgroundContainer';
@@ -13,7 +13,7 @@ import Settings from './components/Settings/Settings';
 const App = (props) => {
    return (
          <div className='app-wrapper'>
-            <Header />
+            <HeaderContainer />
             <BackgroundContainer />
             <Navigation />
             <div className='app-wrapper-content'>

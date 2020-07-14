@@ -3,6 +3,7 @@ import './Project.css'
 import projectImage from '../../../assets/images/project.png'
 import { NavLink } from 'react-router-dom';
 import * as axios from 'axios';
+import { followAPI } from '../../../api/api';
 
 const Project = (props) => {
    return (
@@ -18,28 +19,18 @@ const Project = (props) => {
          <div>
             {props.followed
                ? <button onClick={() => {
-                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {
-                     withCredentials: true,
-                     headers: {
-                        "API-KEY": "99e454ab-399c-4111-94c5-3cd3402b365b"
-                     }
-                  })
-                  .then(response => {
-                     if (response.data.resultCode == 0) {
-                        props.unfollow(props.id);
-                     }
-                  });
-                  
+                  followAPI.unfollow(props.id)
+                     .then(data => {
+                        if (data.resultCode == 0) {
+                           props.unfollow(props.id);
+                        }
+                     });
+
                }}>Unfollow</button>
                : <button onClick={() => {
-                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
-                     withCredentials: true,
-                     headers: {
-                        "API-KEY": "99e454ab-399c-4111-94c5-3cd3402b365b"
-                     }
-                  })
-                     .then(response => {
-                        if (response.data.resultCode == 0) {
+                  followAPI.follow(props.id)
+                     .then(data => {
+                        if (data.resultCode == 0) {
                            props.follow(props.id);
                         }
                      });

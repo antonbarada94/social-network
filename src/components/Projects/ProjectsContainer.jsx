@@ -4,6 +4,7 @@ import { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, t
 import * as axios from 'axios';
 import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
+import { projectsAPI } from '../../api/api';
 
 
 class ProjectsAPIComponent extends React.Component {
@@ -11,11 +12,11 @@ class ProjectsAPIComponent extends React.Component {
    componentDidMount() {
       this.props.toggleIsFetching(true);
 
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true,})
-         .then(response => {
+      projectsAPI.getProjects(this.props.currentPage, this.props.pageSize)
+         .then(data => {
             this.props.toggleIsFetching(false);
-            this.props.setProjects(response.data.items);
-            this.props.setTotalProjectsCount(response.data.totalCount);
+            this.props.setProjects(data.items);
+            this.props.setTotalProjectsCount(data.totalCount);
          });
    }
 
@@ -23,10 +24,10 @@ class ProjectsAPIComponent extends React.Component {
       this.props.setCurrentPage(pageNumber);
       this.props.toggleIsFetching(true);
 
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {withCredentials: true,})
-         .then(response => {
+      projectsAPI.getProjects(pageNumber, this.props.pageSize)
+         .then(data => {
             this.props.toggleIsFetching(false);
-            this.props.setProjects(response.data.items);
+            this.props.setProjects(data.items);
          });
    }
 

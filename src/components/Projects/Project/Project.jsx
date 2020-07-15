@@ -18,21 +18,25 @@ const Project = (props) => {
          </div>
          <div>
             {props.followed
-               ? <button onClick={() => {
+               ? <button disabled={props.followInProgress.some(id => id === props.id)} onClick={() => {
+                  props.toggleIsFollowInProgress(true, props.id);
                   followAPI.unfollow(props.id)
                      .then(data => {
                         if (data.resultCode == 0) {
                            props.unfollow(props.id);
                         }
+                        props.toggleIsFollowInProgress(false, props.id);
                      });
 
                }}>Unfollow</button>
-               : <button onClick={() => {
+               : <button disabled = {props.followInProgress.some(id => id === props.id)} onClick={() => {
+                  props.toggleIsFollowInProgress(true, props.id);
                   followAPI.follow(props.id)
                      .then(data => {
                         if (data.resultCode == 0) {
                            props.follow(props.id);
                         }
+                        props.toggleIsFollowInProgress(false, props.id);
                      });
                }}>Follow</button>}
          </div>

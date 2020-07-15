@@ -24,7 +24,7 @@ let Projects = (props) => {
          <div className='projects-container'>
             {props.projects.map(project =>
                <Route path={"/projects"} render={() => <Project status={project.status} photoUrl={project.photos.small} name={project.name}
-               id={project.id} direction={project.direction} key={project.id} followed={project.followed} follow={props.follow} unfollow={props.unfollow} />} />)}
+               id={project.id} direction={project.direction} key={project.id} followed={project.followed} follow={props.follow} unfollow={props.unfollow} toggleIsFollowInProgress = {props.toggleIsFollowInProgress} followInProgress = {props.followInProgress} />} />)}
          </div>
       </div>
    );

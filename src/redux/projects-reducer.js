@@ -4,6 +4,7 @@ const SET_PROJECTS = 'SET_PROJECTS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PROJECTS_COUNT = 'SET_TOTAL_PROJECTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOW_IN_PROGRESS = 'TOGGLE_IS_FOLLOW_IN_PROGRESS';
 
 let initialState = {
    projects: [],
@@ -11,6 +12,7 @@ let initialState = {
    totalProjectsCount: 0,
    currentPage: 1,
    isFetching: false,
+   followInProgress: [],
 }
 
 const projectsReducer = (state = initialState, action) => {
@@ -60,6 +62,14 @@ const projectsReducer = (state = initialState, action) => {
             isFetching: action.isFetching,
          }
 
+      case TOGGLE_IS_FOLLOW_IN_PROGRESS:
+         return {
+            ...state,
+            followInProgress: action.followInProgress 
+            ? [...state.followInProgress,action.userId] 
+            : state.followInProgress.filter(id => id != action.userId)
+         }
+
       default:
          return state;
    }
@@ -71,5 +81,6 @@ export const setProjects = (projects) => ({ type: SET_PROJECTS, projects });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalProjectsCount = (totalProjectsCount) => ({ type: SET_TOTAL_PROJECTS_COUNT, totalProjectsCount });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
+export const toggleIsFollowInProgress = (followInProgress, userId) => ({ type: TOGGLE_IS_FOLLOW_IN_PROGRESS, followInProgress, userId });
 
 export default projectsReducer; 

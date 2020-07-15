@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching } from '../../redux/projects-reducer';
+import { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching, toggleIsFollowInProgress } from '../../redux/projects-reducer';
 import * as axios from 'axios';
 import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
@@ -41,6 +41,8 @@ class ProjectsAPIComponent extends React.Component {
             currentPage={this.props.currentPage}
             onPageChanged={this.onPageChanged}
             projects={this.props.projects}
+            toggleIsFollowInProgress = {this.props.toggleIsFollowInProgress}
+            followInProgress = {this.props.followInProgress}
          />
       </>
    }
@@ -53,6 +55,7 @@ let mapStateToProps = (state) => {
       totalProjectsCount: state.projectsPage.totalProjectsCount,
       currentPage: state.projectsPage.currentPage,
       isFetching: state.projectsPage.isFetching,
+      followInProgress: state.projectsPage.followInProgress,
    }
 }
 
@@ -79,6 +82,6 @@ let mapStateToProps = (state) => {
 //    }
 // }
 
-const ProjectsContainer = connect(mapStateToProps, { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching, })(ProjectsAPIComponent)
+const ProjectsContainer = connect(mapStateToProps, { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching, toggleIsFollowInProgress })(ProjectsAPIComponent)
 
 export default ProjectsContainer;  

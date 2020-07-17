@@ -1,34 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching, toggleIsFollowInProgress } from '../../redux/projects-reducer';
-import * as axios from 'axios';
+import { follow, unfollow,  setCurrentPage, toggleIsFollowInProgress, getProjects, followThunk, unfollowThunk } from '../../redux/projects-reducer';
 import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
-import { projectsAPI } from '../../api/api';
 
 
 class ProjectsAPIComponent extends React.Component {
 
    componentDidMount() {
-      this.props.toggleIsFetching(true);
-
-      projectsAPI.getProjects(this.props.currentPage, this.props.pageSize)
-         .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setProjects(data.items);
-            this.props.setTotalProjectsCount(data.totalCount);
-         });
+      this.props.getProjects(this.props.currentPage, this.props.pageSize);
    }
 
    onPageChanged = (pageNumber) => {
       this.props.setCurrentPage(pageNumber);
-      this.props.toggleIsFetching(true);
-
-      projectsAPI.getProjects(pageNumber, this.props.pageSize)
-         .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setProjects(data.items);
-         });
+      this.props.getProjects(pageNumber, this.props.pageSize);
    }
 
    render() {
@@ -41,8 +26,9 @@ class ProjectsAPIComponent extends React.Component {
             currentPage={this.props.currentPage}
             onPageChanged={this.onPageChanged}
             projects={this.props.projects}
-            toggleIsFollowInProgress = {this.props.toggleIsFollowInProgress}
             followInProgress = {this.props.followInProgress}
+            followThunk = {this.props.followThunk}
+            unfollowThunk = {this.props.unfollowThunk}
          />
       </>
    }
@@ -82,6 +68,8 @@ let mapStateToProps = (state) => {
 //    }
 // }
 
-const ProjectsContainer = connect(mapStateToProps, { follow, unfollow, setProjects, setCurrentPage, setTotalProjectsCount, toggleIsFetching, toggleIsFollowInProgress })(ProjectsAPIComponent)
+const ProjectsContainer = connect(mapStateToProps, 
+   { follow, unfollow, setCurrentPage,
+      getProjects, followThunk, unfollowThunk })(ProjectsAPIComponent)
 
 export default ProjectsContainer;  

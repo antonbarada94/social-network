@@ -1,3 +1,5 @@
+import { projectsAPI, followAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_PROJECTS = 'SET_PROJECTS';
@@ -65,9 +67,9 @@ const projectsReducer = (state = initialState, action) => {
       case TOGGLE_IS_FOLLOW_IN_PROGRESS:
          return {
             ...state,
-            followInProgress: action.followInProgress 
-            ? [...state.followInProgress,action.userId] 
-            : state.followInProgress.filter(id => id != action.userId)
+            followInProgress: action.followInProgress
+               ? [...state.followInProgress, action.userId]
+               : state.followInProgress.filter(id => id != action.userId)
          }
 
       default:
@@ -83,4 +85,43 @@ export const setTotalProjectsCount = (totalProjectsCount) => ({ type: SET_TOTAL_
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 export const toggleIsFollowInProgress = (followInProgress, userId) => ({ type: TOGGLE_IS_FOLLOW_IN_PROGRESS, followInProgress, userId });
 
-export default projectsReducer; 
+export const getProjects = (currentPage, pageSize) => {
+   return (dispatch) => {
+      dispatch(toggleIsFetching(true));
+      projectsAPI.getProjects(currentPage, pageSize)
+         .then(data => {
+            dispatch(toggleIsFetching(false));
+            dispatch(setProjects(data.items));
+            dispatch(setTotalProjectsCount(data.totalCount));
+         });
+   }
+}
+
+export const followThunk = (id) => {
+   return (dispatch) => {
+      dispatch(toggleIsFollowInProgress(true, id));
+                  followAPI.follow(id)
+                     .then(data => {
+                        if (data.resultCode == 0) {
+                           dispatch(follow(id));
+                        }
+                        dispatch(toggleIsFollowInProgress(false, id));
+                     });
+   }
+}
+
+export const unfollowThunk = (id) => {
+   return (dispatch) => {
+      dispatch(toggleIsFollowInProgress(true, id));
+      followAPI.unfollow(id)
+         .then(data => {
+            if (data.resultCode == 0) {
+               dispatch(unfollow(id));
+            }
+            dispatch(toggleIsFollowInProgress(false, id));
+         });
+   }      
+}
+
+
+   export default projectsReducer; 

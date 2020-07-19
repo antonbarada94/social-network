@@ -2,7 +2,6 @@ import React from 'react';
 import './Project.css'
 import projectImage from '../../../assets/images/project.png'
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
 
 const Project = (props) => {
    return (

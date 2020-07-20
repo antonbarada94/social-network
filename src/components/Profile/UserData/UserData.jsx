@@ -1,10 +1,10 @@
 import React from 'react';
 import './UserData.css';
-import avatar from '../../../img/post_avatar.png';
 import Description from './Description/Description';
 import Statistics from './Statistics/Statistics';
 import Skills from './Skills/Skills';
 import Preloader from '../../common/Preloader/Preloader';
+import profileImage from '../../../assets/images/project.png'
 
 const Userdata = (props) => {
    if (!props.profile) {
@@ -13,7 +13,7 @@ const Userdata = (props) => {
    return (
       <div>
          <div className='user-data'>
-            <img src={props.profile.photos.small} />
+            <img src={props.profile.photos.small != null ? props.profile.photos.small : profileImage} />
             <Description fullName = {props.profile.fullName} specialization = {props.profile.lookingForAJobDescription} />
             <Statistics />
          </div>

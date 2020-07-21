@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { follow, unfollow,  setCurrentPage, toggleIsFollowInProgress, getProjects, followThunk, unfollowThunk } from '../../redux/projects-reducer';
 import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
+import { Redirect } from 'react-router-dom';
 
 
 class ProjectsAPIComponent extends React.Component {
@@ -17,6 +18,8 @@ class ProjectsAPIComponent extends React.Component {
    }
 
    render() {
+      if (!this.props.isAuth) return <Redirect to = '/login' />
+
       return <>
          {this.props.isFetching ? <Preloader /> : null}
          <Projects totalProjectsCount={this.props.totalProjectsCount}
@@ -42,6 +45,7 @@ let mapStateToProps = (state) => {
       currentPage: state.projectsPage.currentPage,
       isFetching: state.projectsPage.isFetching,
       followInProgress: state.projectsPage.followInProgress,
+      isAuth: state.auth.isAuth,
    }
 }
 

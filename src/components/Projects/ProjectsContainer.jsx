@@ -4,6 +4,7 @@ import { follow, unfollow,  setCurrentPage, toggleIsFollowInProgress, getProject
 import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
 import { Redirect } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 
 class ProjectsAPIComponent extends React.Component {
@@ -18,7 +19,6 @@ class ProjectsAPIComponent extends React.Component {
    }
 
    render() {
-      if (!this.props.isAuth) return <Redirect to = '/login' />
 
       return <>
          {this.props.isFetching ? <Preloader /> : null}
@@ -49,31 +49,10 @@ let mapStateToProps = (state) => {
    }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//    return {
-//       follow: (projectId) => {
-//          dispatch(followActionCreator(projectId));
-//       },
-//       unfollow: (projectId) => {
-//          dispatch(unfollowActionCreator(projectId));
-//       },
-//       setProjects: (projects) => {
-//          dispatch(setProjectsActionCreator(projects));
-//       },
-//       setCurrentPage: (pageNumber) => {
-//          dispatch(setCurrentPageActionCreator(pageNumber));
-//       },
-//       setTotalProjectsCount: (totalCount) => {
-//          dispatch(setTotalProjectsCountActionCreator(totalCount));
-//       },
-//       toggleIsFetching: (isFetching) => {
-//          dispatch(toggleIsFetchingActionCreator(isFetching));
-//       }
-//    }
-// }
+let authRedirectComponent = withAuthRedirect(ProjectsAPIComponent)
 
 const ProjectsContainer = connect(mapStateToProps, 
    { follow, unfollow, setCurrentPage,
-      getProjects, followThunk, unfollowThunk })(ProjectsAPIComponent)
+      getProjects, followThunk, unfollowThunk })(authRedirectComponent)
 
 export default ProjectsContainer;  

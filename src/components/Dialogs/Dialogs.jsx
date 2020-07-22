@@ -13,8 +13,6 @@ const Dialogs = (props) => {
 
    let messagesElements = props.messages.map(message => <Route path = {"/dialogs/" + message.id }  render = {() => <Message message = {message.message} name = {message.name} id = {message.id} key = {message.id} />} /> )
 
-   if (!props.isAuth) return <Redirect to = '/login' />
-
    return (
       <div className = 'dialogs'>
          <div className = "dialogs-items">

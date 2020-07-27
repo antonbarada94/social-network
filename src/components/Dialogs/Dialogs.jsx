@@ -2,7 +2,7 @@ import React from 'react';
 import './Dialogs.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NewMessageContainer from './NewMessage/NewMessageContainer';
 import Search from './Search/Search';
 

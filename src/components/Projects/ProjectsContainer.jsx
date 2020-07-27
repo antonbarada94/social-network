@@ -5,6 +5,7 @@ import Projects from './Projects';
 import Preloader from '../common/Preloader/Preloader';
 import { Redirect } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
 class ProjectsAPIComponent extends React.Component {
@@ -45,14 +46,14 @@ let mapStateToProps = (state) => {
       currentPage: state.projectsPage.currentPage,
       isFetching: state.projectsPage.isFetching,
       followInProgress: state.projectsPage.followInProgress,
-      isAuth: state.auth.isAuth,
    }
 }
 
-let authRedirectComponent = withAuthRedirect(ProjectsAPIComponent)
-
-const ProjectsContainer = connect(mapStateToProps, 
-   { follow, unfollow, setCurrentPage,
-      getProjects, followThunk, unfollowThunk })(authRedirectComponent)
+const ProjectsContainer = compose (
+   withAuthRedirect,
+   connect(mapStateToProps, 
+      { follow, unfollow, setCurrentPage,
+         getProjects, followThunk, unfollowThunk })
+)(ProjectsAPIComponent)
 
 export default ProjectsContainer;  

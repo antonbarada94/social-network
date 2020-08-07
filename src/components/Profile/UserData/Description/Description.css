@@ -1,6 +1,7 @@
 .description {
    display: grid;
    grid-template-rows: min-content min-content min-content;
+   row-gap: 15px;
 }
 
 .description .username {

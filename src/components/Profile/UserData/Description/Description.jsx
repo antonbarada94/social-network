@@ -1,12 +1,12 @@
 import React from 'react';
 import './Description.css';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const Description = (props) => {
    return (
       <div className = 'description'>
          <p className = 'username'>{props.fullName}</p>
-         <p className = 'specialization'>{props.specialization}</p>
-         <p className = 'location'>Location</p>
+         <ProfileStatus status = {'Hello my friend!'} />
       </div>
    );
 }

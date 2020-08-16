@@ -6,7 +6,7 @@ const Description = (props) => {
    return (
       <div className = 'description'>
          <p className = 'username'>{props.fullName}</p>
-         <ProfileStatus status = {'Hello my friend!'} />
+         <ProfileStatus status = {props.status} updateStatus = {props.updateStatus} />
       </div>
    );
 }

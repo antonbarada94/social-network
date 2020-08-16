@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
    return {
       skills: state.profilePage.skills,
       profile: state.profilePage.profile,
+      status: state.profilePage.status,
    }
 }
 

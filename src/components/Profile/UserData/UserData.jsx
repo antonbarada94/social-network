@@ -14,7 +14,7 @@ const Userdata = (props) => {
       <div>
          <div className='user-data'>
             <img src={props.profile.photos.small != null ? props.profile.photos.small : profileImage} />
-            <Description fullName = {props.profile.fullName} specialization = {props.profile.lookingForAJobDescription} />
+            <Description fullName = {props.profile.fullName} specialization = {props.profile.lookingForAJobDescription} status = {props.status} updateStatus = {props.updateStatus} />
             <Statistics />
          </div>
          <Skills skills = {props.skills} />
